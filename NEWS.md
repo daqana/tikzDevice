@@ -7,6 +7,9 @@ Bug fixes
 
 - make sure that tikzInfo->outColorFileName is always initialized (Dean Scarff
   in #200 fixinf #199)
+  
+- Finally merged #206 from Paul Murrell to make `tikzDevice` compatible with the
+  graphics engine in R >= 4.1  
 
 
 # tikzDevice 0.12.3 (2019-08-07)
