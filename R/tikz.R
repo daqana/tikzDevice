@@ -118,13 +118,13 @@
 #'
 #' @note To compile the output of `tikz` a working installation of LaTeX
 #'   and PGF is needed.  Current releases of the TikZ package are available
-#'   from <http://www.ctan.org>. The package may also be installed through
+#'   from <https://www.ctan.org>. The package may also be installed through
 #'   the MikTeX package manager on Windows or using the TeX Live package
 #'   manager, `tlmgr`, on Unix/Linux/OS X. The TeX Live package manager
 #'   will only be installed by default for TeX Live distributions dated 2008
 #'   and later. Both bleeding-edge and release versions of TikZ may be obtained
 #'   from the project website hosted at
-#'   <http://sourceforge.net/projects/pgf/>.
+#'   <https://sourceforge.net/projects/pgf/>.
 #'
 #' Multiple plots will be placed as separate environments in the output file.
 #'
@@ -135,7 +135,7 @@
 #'   [getLatexStrWidth()], [setTikzDefaults()],
 #'   [tikzAnnotate()], [sanitizeTexString()]
 #' @references The TikZ and PGF Packages: Manual for version 2.00\cr
-#'   <http://sourceforge.net/projects/pgf>\cr Till Tantau, February 20,
+#'   <https://sourceforge.net/projects/pgf>\cr Till Tantau, February 20,
 #'   2008
 #' @keywords device
 #'
