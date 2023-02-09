@@ -626,7 +626,10 @@ static Rboolean TikZ_Open( pDevDesc deviceInfo )
 
   /* If creating multiple files, add the page number to the filename. */
   if ( !tikzInfo->onefile )
-    sprintf(tikzInfo->outFileName, tikzInfo->originalFileName, tikzInfo->pageNum);
+    snprintf(tikzInfo->outFileName,
+             strlen(tikzInfo->originalColorFileName)+floor(log10(tikzInfo->pageNum))+1,
+             tikzInfo->originalFileName,
+             tikzInfo->pageNum);
 
   if( strlen(tikzInfo->originalColorFileName) > 0 )
     {
@@ -1735,7 +1738,7 @@ static SEXP TikZ_setPattern(SEXP pattern, pDevDesc dd) {
     return R_NilValue;
 }
 
-static void TikZ_releasePattern(SEXP ref, pDevDesc dd) {} 
+static void TikZ_releasePattern(SEXP ref, pDevDesc dd) {}
 
 static SEXP TikZ_setClipPath(SEXP path, SEXP ref, pDevDesc dd) {
     return R_NilValue;

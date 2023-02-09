@@ -123,7 +123,7 @@ Default values for all options may be viewed or restored using the
 
 \references{
 The TikZ and PGF Packages: Manual for version 2.00\cr
-\url{http://sourceforge.net/projects/pgf}\cr Till Tantau, February 20, 2008
+\url{https://sourceforge.net/projects/pgf}\cr Till Tantau, February 20, 2008
 }
 \seealso{
 \code{\link[=tikz]{tikz()}}
@@ -131,6 +131,6 @@ The TikZ and PGF Packages: Manual for version 2.00\cr
 \author{
 See \code{packageDescription("tikzDevice")}.
 
-Submit bug reports to: \url{https://github.com/yihui/tikzDevice/issues}
+Submit bug reports to: \url{https://github.com/daqana/tikzDevice/issues}
 }
 \keyword{package}

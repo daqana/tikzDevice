@@ -118,10 +118,10 @@
 #'   [setTikzDefaults()] function.
 #' @author See `packageDescription("tikzDevice")`.
 #'
-#'   Submit bug reports to: <https://github.com/yihui/tikzDevice/issues>
+#'   Submit bug reports to: <https://github.com/daqana/tikzDevice/issues>
 #' @seealso [tikz()]
 #' @references The TikZ and PGF Packages: Manual for version 2.00\cr
-#'   <http://sourceforge.net/projects/pgf>\cr Till Tantau, February 20, 2008
+#'   <https://sourceforge.net/projects/pgf>\cr Till Tantau, February 20, 2008
 #' @keywords package
 NULL
 
