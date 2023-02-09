@@ -172,13 +172,13 @@ set.
 \note{
 To compile the output of \code{tikz} a working installation of LaTeX
 and PGF is needed.  Current releases of the TikZ package are available
-from \url{http://www.ctan.org}. The package may also be installed through
+from \url{https://www.ctan.org}. The package may also be installed through
 the MikTeX package manager on Windows or using the TeX Live package
 manager, \code{tlmgr}, on Unix/Linux/OS X. The TeX Live package manager
 will only be installed by default for TeX Live distributions dated 2008
 and later. Both bleeding-edge and release versions of TikZ may be obtained
 from the project website hosted at
-\url{http://sourceforge.net/projects/pgf/}.
+\url{https://sourceforge.net/projects/pgf/}.
 
 Multiple plots will be placed as separate environments in the output file.
 }
@@ -256,7 +256,7 @@ setwd(oldwd)
 }
 \references{
 The TikZ and PGF Packages: Manual for version 2.00\cr
-\url{http://sourceforge.net/projects/pgf}\cr Till Tantau, February 20,
+\url{https://sourceforge.net/projects/pgf}\cr Till Tantau, February 20,
 2008
 }
 \seealso{
