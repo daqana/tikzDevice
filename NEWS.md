@@ -1,3 +1,10 @@
+# tikzDevice 0.12.5 (2023-08-17)
+
+Bug fixes
+---------
+
+- remove float.sty from the vignette to remove WARNING on CRAN (#223 fixing #222)
+
 # tikzDevice 0.12.4 (2023-02-09)
 
 Bug fixes

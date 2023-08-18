@@ -881,7 +881,7 @@ are currently required to use the output of \code{tikz}. Inside the \LaTeX\
 document, the contents of the file \code{simpleEx.tex} are imported using the
 \verb|\include| command.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
   \centering
 
   \begin{minipage}{0.5\textwidth}
@@ -894,7 +894,7 @@ document, the contents of the file \code{simpleEx.tex} are imported using the
 \usepackage{tikz}
 
 \begin{document}
-  \begin{figure}[!h]
+  \begin{figure}[!ht]
     \centering
 
     % The output from tikz()
@@ -924,7 +924,7 @@ appear in the output for \LaTeX. The next example demonstrates how to use
 \LaTeX\ commands in plot annotation.
 
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
   \centering
   \begin{minipage}{0.5\textwidth}
 <<latexEx,echo=TRUE,results='hide',tidy=FALSE>>=
@@ -1029,7 +1029,7 @@ to embed \code{bareBones} output in a \code{tikzpicture}:
 \end{tikzCodeBlock}
 
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 
   \centering
 
@@ -1194,7 +1194,7 @@ Compiling the resulting file with \hologo{XeLaTeX} will produce the output in
 \autoref{fig:xelatex}. Please note some of the fonts used in the example may
 not be available on every system.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \centering
 \includegraphics{img/xelatexEx.pdf}
 \caption{Result of \hologo{XeLaTeX} example}\label{fig:xelatex}
@@ -1250,7 +1250,7 @@ tikzNode(
 dev.off()
 @
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \centering
 \input{figs/annotation.tex}
 \caption{An example using \TikZ\ annotation.}\label{fig:annotation}
@@ -1263,7 +1263,7 @@ dev.off()
 This is a side-by-side example showing how \code{tikz(..., engine = 'xetex')} handles UTF-8
 characters and plotmath symbols compared to the standard \lang{R} \code{pdf} device.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \centering
   \begin{minipage}{4.25in}
     \includegraphics[width=4.25in]{img/plotmathDefault.pdf}
@@ -2127,4 +2127,4 @@ Now for a little shameless self promotion. The authors of \pkg{tikzDevice} have 
 
 \bibliography{refs}
 
-\end{document}\n
+\end{document}

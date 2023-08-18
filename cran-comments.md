@@ -1,8 +1,8 @@
-This upload primarily removes usage of "sprintf".
+This upload removes float.sty from the vignette fixing a recent WARNING.
 
 ## Test environments
 
-* local:  Linux with R 4.2.1
+* local:  Linux with R 4.3.1
 * GitHub:
     * Ubuntu, R release, R-devel
 * winbuilder: Windows, R-devel
