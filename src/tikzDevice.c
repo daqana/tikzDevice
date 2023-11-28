@@ -2340,7 +2340,7 @@ void TikZ_CheckState(pDevDesc deviceInfo)
      */
     if( !tikzInfo->onefile )
       if( !TikZ_Open(deviceInfo) )
-        error("Unable to open output file: %s", tikzInfo->outputFile);
+        error("Unable to open output file: %s", tikzInfo->outFileName);
 
     if ( tikzInfo->debug == TRUE )
       printOutput(tikzInfo,
