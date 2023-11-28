@@ -104,7 +104,7 @@ void TikZ_Annotate(const char **annotation, int *size, int *checkstate);
 SEXP TikZ_DeviceInfo(SEXP device_num);
 
 
-static Rboolean TikZ_Setup(
+Rboolean TikZ_Setup(
     pDevDesc deviceInfo,
     const char *fileName,
     double width, double height, Rboolean onefile,
@@ -120,40 +120,40 @@ static Rboolean TikZ_Setup(
 /* Graphics Engine function hooks. Defined in GraphicsDevice.h . */
 
 /* Device State */
-static Rboolean TikZ_Open( pDevDesc deviceInfo );
-static void TikZ_Close( pDevDesc deviceInfo );
-static void TikZ_NewPage( const pGEcontext plotParams, pDevDesc deviceInfo );
-static void TikZ_Clip( double x0, double x1,
+Rboolean TikZ_Open( pDevDesc deviceInfo );
+void TikZ_Close( pDevDesc deviceInfo );
+void TikZ_NewPage( const pGEcontext plotParams, pDevDesc deviceInfo );
+void TikZ_Clip( double x0, double x1,
     double y0, double y1, pDevDesc deviceInfo );
-static void TikZ_Size( double *left, double *right,
+void TikZ_Size( double *left, double *right,
     double *bottom, double *top, pDevDesc deviceInfo);
 
 /* Font Metrics*/
-static void TikZ_MetricInfo( int c, const pGEcontext plotParams,
+void TikZ_MetricInfo( int c, const pGEcontext plotParams,
     double *ascent, double *descent, double *width, pDevDesc deviceInfo );
-static double TikZ_StrWidth( const char *str,
+double TikZ_StrWidth( const char *str,
     const pGEcontext plotParams, pDevDesc deviceInfo );
 
 /* Drawing routines. */
-static void TikZ_Text( double x, double y, const char *str,
+void TikZ_Text( double x, double y, const char *str,
     double rot, double hadj, const pGEcontext plotParams, pDevDesc deviceInfo);
-static void TikZ_Circle( double x, double y, double r,
+void TikZ_Circle( double x, double y, double r,
     const pGEcontext plotParams, pDevDesc deviceInfo );
-static void TikZ_Rectangle( double x0, double y0,
+void TikZ_Rectangle( double x0, double y0,
     double x1, double y1, const pGEcontext plotParams, pDevDesc deviceInfo );
-static void TikZ_Line( double x1, double y1,
+void TikZ_Line( double x1, double y1,
     double x2, double y2, const pGEcontext plotParams, pDevDesc deviceInfo );
-static void TikZ_Polyline( int n, double *x, double *y,
+void TikZ_Polyline( int n, double *x, double *y,
     pGEcontext plotParams, pDevDesc deviceInfo );
-static void TikZ_Polygon( int n, double *x, double *y,
+void TikZ_Polygon( int n, double *x, double *y,
     pGEcontext plotParams, pDevDesc deviceInfo );
-static void
+void
 TikZ_Path( double *x, double *y,
   int npoly, int *nper,
   Rboolean winding,
   const pGEcontext plotParams, pDevDesc deviceInfo );
 
-static void TikZ_Raster(
+void TikZ_Raster(
   unsigned int *raster,
   int w, int h,
   double x, double y,
@@ -163,19 +163,19 @@ static void TikZ_Raster(
   const pGEcontext plotParams, pDevDesc deviceInfo
 );
 
-static SEXP     TikZ_setPattern(SEXP pattern, pDevDesc dd);
-static void     TikZ_releasePattern(SEXP ref, pDevDesc dd);
-static SEXP     TikZ_setClipPath(SEXP path, SEXP ref, pDevDesc dd);
-static void     TikZ_releaseClipPath(SEXP ref, pDevDesc dd);
-static SEXP     TikZ_setMask(SEXP path, SEXP ref, pDevDesc dd);
-static void     TikZ_releaseMask(SEXP ref, pDevDesc dd);
+SEXP     TikZ_setPattern(SEXP pattern, pDevDesc dd);
+void     TikZ_releasePattern(SEXP ref, pDevDesc dd);
+SEXP     TikZ_setClipPath(SEXP path, SEXP ref, pDevDesc dd);
+void     TikZ_releaseClipPath(SEXP ref, pDevDesc dd);
+SEXP     TikZ_setMask(SEXP path, SEXP ref, pDevDesc dd);
+void     TikZ_releaseMask(SEXP ref, pDevDesc dd);
 
 /* Dummy/Unimplemented routines. */
-static SEXP TikZ_Cap( pDevDesc deviceInfo );
-static void TikZ_Activate( pDevDesc deviceInfo );
-static void TikZ_Deactivate( pDevDesc deviceInfo );
-static Rboolean TikZ_Locator( double *x, double *y, pDevDesc deviceInfo );
-static void TikZ_Mode( int mode, pDevDesc deviceInfo );
+SEXP TikZ_Cap( pDevDesc deviceInfo );
+void TikZ_Activate( pDevDesc deviceInfo );
+void TikZ_Deactivate( pDevDesc deviceInfo );
+Rboolean TikZ_Locator( double *x, double *y, pDevDesc deviceInfo );
+void TikZ_Mode( int mode, pDevDesc deviceInfo );
 
 /* End R Graphics engine function hooks. */
 
@@ -195,31 +195,31 @@ typedef enum {
   DRAWOP_DRAW = 1,
   DRAWOP_FILL = 2
 } TikZ_DrawOps;
-static TikZ_DrawOps TikZ_GetDrawOps(pGEcontext plotParams);
+TikZ_DrawOps TikZ_GetDrawOps(pGEcontext plotParams);
 
-static void TikZ_DefineColors(const pGEcontext plotParams, pDevDesc deviceInfo, TikZ_DrawOps ops);
-static void TikZ_WriteDrawOptions(const pGEcontext plotParams, pDevDesc deviceInfo, TikZ_DrawOps ops);
-static void TikZ_WriteLineStyle(pGEcontext plotParams, tikzDevDesc *tikzInfo);
+void TikZ_DefineColors(const pGEcontext plotParams, pDevDesc deviceInfo, TikZ_DrawOps ops);
+void TikZ_WriteDrawOptions(const pGEcontext plotParams, pDevDesc deviceInfo, TikZ_DrawOps ops);
+void TikZ_WriteLineStyle(pGEcontext plotParams, tikzDevDesc *tikzInfo);
 
-static double ScaleFont( const pGEcontext plotParams, pDevDesc deviceInfo );
+double ScaleFont( const pGEcontext plotParams, pDevDesc deviceInfo );
 
 SEXP TikZ_EvalWithoutInterrupts(SEXP expr, SEXP envir);
 
 /* Utility Routines*/
-static void printOutput(tikzDevDesc *tikzInfo, const char *format, ...);
-static void printColorOutput(tikzDevDesc *tikzInfo, const char *format, ...);
-static void Print_TikZ_Header( tikzDevDesc *tikzInfo );
-static char *Sanitize(const char *str);
+void printOutput(tikzDevDesc *tikzInfo, const char *format, ...);
+void printColorOutput(tikzDevDesc *tikzInfo, const char *format, ...);
+void Print_TikZ_Header( tikzDevDesc *tikzInfo );
+char *Sanitize(const char *str);
 #if 0
-static Rboolean contains_multibyte_chars(const char *str);
+Rboolean contains_multibyte_chars(const char *str);
 #endif
-static double dim2dev( double length );
-static void TikZ_CheckState(pDevDesc deviceInfo);
-static char *calloc_strcpy(const char *str);
-static char *calloc_x_strcpy(const char *str, size_t extra);
-static char *calloc_x_strlen(const char *str, size_t extra);
-static void const_free(const void *ptr);
-static void strlcpy_(char *dst, const char* src, size_t n);
+double dim2dev( double length );
+void TikZ_CheckState(pDevDesc deviceInfo);
+char *calloc_strcpy(const char *str);
+char *calloc_x_strcpy(const char *str, size_t extra);
+char *calloc_x_strlen(const char *str, size_t extra);
+void const_free(const void *ptr);
+void strlcpy_(char *dst, const char* src, size_t n);
 #define strscpy(dst, src) strlcpy_(dst, src, sizeof(dst) / sizeof(*(dst)))
 
 
