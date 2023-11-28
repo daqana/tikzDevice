@@ -19,6 +19,7 @@ GNUmakefile
 ^revdep$
 inst/staticdocs
 ^tests/testthat/\.tikzMetrics$
+^vignettes/\.tikzMetrics$
 vignettes/.*\.synctex\.gz$
 .idea$
 CMakeLists\.txt$
