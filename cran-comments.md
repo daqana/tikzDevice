@@ -1,4 +1,4 @@
-This upload removes float.sty from the vignette fixing a recent WARNING.
+This upload corrects an error message fixing a recent WARNING.
 
 ## Test environments
 
