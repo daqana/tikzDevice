@@ -233,10 +233,7 @@ SEXP TikZ_StartDevice ( SEXP args ){
 /*
  * This function is responsible for initializing device parameters
  * contained in the variable deviceInfo. It returns a true or false
- * value depending on the success of initialization operations. The
- * keyword means this function can only be seen by other functions
- * in this file. A better choice for the keyword might have been something
- * like "private"...
+ * value depending on the success of initialization operations.
 */
 
 Rboolean TikZ_Setup(
