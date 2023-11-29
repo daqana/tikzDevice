@@ -1,3 +1,10 @@
+# tikzDevice 0.12.6 (2023-11-29)
+
+Bug fixes
+---------
+
+- corrects an error message to remove WARNING on CRAN (#227 fixing #226)
+
 # tikzDevice 0.12.5 (2023-08-17)
 
 Bug fixes
