@@ -10,7 +10,6 @@
 #'
 #' @name tikzDevice-package
 #' @aliases tikzDevice-package tikzDevice
-#' @docType package
 #' @section Options That Affect Package Behavior: The \pkg{tikzDevice} package
 #'   is currently influenced by a number of global options that may be set in
 #'   scripts, from the console or in a `.Rprofile` file. All of the options
@@ -122,8 +121,7 @@
 #' @seealso [tikz()]
 #' @references The TikZ and PGF Packages: Manual for version 2.00\cr
 #'   <https://sourceforge.net/projects/pgf>\cr Till Tantau, February 20, 2008
-#' @keywords package
-NULL
+"_PACKAGE"
 
 #' @importFrom grDevices as.raster dev.cur dev.list dev.off png
 #' @importFrom graphics grconvertX grconvertY par plot.new rasterImage

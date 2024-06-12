@@ -133,4 +133,3 @@ See \code{packageDescription("tikzDevice")}.
 
 Submit bug reports to: \url{https://github.com/daqana/tikzDevice/issues}
 }
-\keyword{package}

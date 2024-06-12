@@ -26,6 +26,74 @@ getDocumentPointsize <- function(docString) {
   as.numeric(pointsize[pointsize != ""][1])
 }
 
+tikzDefaults <- list(
+  tikzDefaultEngine = "pdftex",
+
+  tikzLatex = getOption("tikzLatexDefault"),
+
+  tikzDocumentDeclaration = "\\documentclass[10pt]{article}\n",
+
+  tikzLatexPackages = c(
+    "\\usepackage{tikz}\n",
+    "\\usepackage[active,tightpage,psfixbb]{preview}\n",
+    "\\PreviewEnvironment{pgfpicture}\n",
+    "\\setlength\\PreviewBorder{0pt}\n"
+  ),
+
+  tikzXelatexPackages = c(
+    "\\usepackage{tikz}\n",
+    "\\usepackage[active,tightpage,xetex]{preview}\n",
+    "\\usepackage{fontspec,xunicode}\n",
+    "\\PreviewEnvironment{pgfpicture}\n",
+    "\\setlength\\PreviewBorder{0pt}\n"
+  ),
+
+  tikzLualatexPackages = c(
+    "\\usepackage{tikz}\n",
+    "\\IfFileExists{luatex85.sty}{\\usepackage{luatex85}}{}\n",
+    "\\usepackage[active,tightpage,psfixbb]{preview}\n",
+    "\\usepackage{fontspec}\n",
+    "\\PreviewEnvironment{pgfpicture}\n",
+    "\\setlength\\PreviewBorder{0pt}\n"
+  ),
+
+  tikzFooter = "",
+
+  tikzMetricPackages = c(
+    # The fontenc package is very important here!
+    # R assumes the output device is uing T1 encoding.
+    # LaTeX defaults to OT1. This package makes the
+    # symbol codes consistant for both systems.
+    "\\usepackage[T1]{fontenc}\n",
+    "\\usetikzlibrary{calc}\n"
+  ),
+
+  tikzUnicodeMetricPackages = c(
+    # The fontenc package is very important here!
+    # R assumes the output device is uing T1 encoding.
+    # LaTeX defaults to OT1. This package makes the
+    # symbol codes consistant for both systems.
+    "\\usepackage[T1]{fontenc}\n",
+    "\\usetikzlibrary{calc}\n",
+    "\\usepackage{fontspec}\n"
+  ),
+
+
+  tikzSanitizeCharacters = c("%", "$", "}", "{", "^", "_", "#", "&", "~"),
+
+  tikzReplacementCharacters = c(
+    "\\%", "\\$", "\\}", "\\{", "\\^{}", "\\_{}",
+    "\\#", "\\&", "\\char`\\~"
+  ),
+
+  tikzLwdUnit = 0.4,
+
+  tikzPdftexWarnUTF = TRUE,
+
+  tikzSymbolicColors = FALSE,
+  tikzMaxSymbolicColors = 100
+)
+
 
 #' Reset tikzDevice options to default values.
 #'
@@ -46,7 +114,7 @@ getDocumentPointsize <- function(docString) {
 #'   \item `tikzPdftexWarnUTF`
 #' }
 #'
-#' @param overwrite Should values that are allready set in `options()` be
+#' @param overwrite Should values that are already set in `options()` be
 #'   overwritten?
 #' @return Nothing returned.
 #'
@@ -64,74 +132,6 @@ getDocumentPointsize <- function(docString) {
 #'
 #' @export
 setTikzDefaults <- function(overwrite = TRUE) {
-  tikzDefaults <- list(
-    tikzDefaultEngine = "pdftex",
-
-    tikzLatex = getOption("tikzLatexDefault"),
-
-    tikzDocumentDeclaration = "\\documentclass[10pt]{article}\n",
-
-    tikzLatexPackages = c(
-      "\\usepackage{tikz}\n",
-      "\\usepackage[active,tightpage,psfixbb]{preview}\n",
-      "\\PreviewEnvironment{pgfpicture}\n",
-      "\\setlength\\PreviewBorder{0pt}\n"
-    ),
-
-    tikzXelatexPackages = c(
-      "\\usepackage{tikz}\n",
-      "\\usepackage[active,tightpage,xetex]{preview}\n",
-      "\\usepackage{fontspec,xunicode}\n",
-      "\\PreviewEnvironment{pgfpicture}\n",
-      "\\setlength\\PreviewBorder{0pt}\n"
-    ),
-
-    tikzLualatexPackages = c(
-      "\\usepackage{tikz}\n",
-      "\\IfFileExists{luatex85.sty}{\\usepackage{luatex85}}{}\n",
-      "\\usepackage[active,tightpage,psfixbb]{preview}\n",
-      "\\usepackage{fontspec}\n",
-      "\\PreviewEnvironment{pgfpicture}\n",
-      "\\setlength\\PreviewBorder{0pt}\n"
-    ),
-
-    tikzFooter = "",
-
-    tikzMetricPackages = c(
-      # The fontenc package is very important here!
-      # R assumes the output device is uing T1 encoding.
-      # LaTeX defaults to OT1. This package makes the
-      # symbol codes consistant for both systems.
-      "\\usepackage[T1]{fontenc}\n",
-      "\\usetikzlibrary{calc}\n"
-    ),
-
-    tikzUnicodeMetricPackages = c(
-      # The fontenc package is very important here!
-      # R assumes the output device is uing T1 encoding.
-      # LaTeX defaults to OT1. This package makes the
-      # symbol codes consistant for both systems.
-      "\\usepackage[T1]{fontenc}\n",
-      "\\usetikzlibrary{calc}\n",
-      "\\usepackage{fontspec}\n"
-    ),
-
-
-    tikzSanitizeCharacters = c("%", "$", "}", "{", "^", "_", "#", "&", "~"),
-
-    tikzReplacementCharacters = c(
-      "\\%", "\\$", "\\}", "\\{", "\\^{}", "\\_{}",
-      "\\#", "\\&", "\\char`\\~"
-    ),
-
-    tikzLwdUnit = 0.4,
-
-    tikzPdftexWarnUTF = TRUE,
-
-    tikzSymbolicColors = FALSE,
-    tikzMaxSymbolicColors = 100
-  )
-
   if (!overwrite) {
 
     # We don't want to overwrite options that have allready been set.
@@ -151,6 +151,30 @@ setTikzDefaults <- function(overwrite = TRUE) {
 
   # Return a list of the options that were modified.
   invisible(tikzSetOptions)
+}
+
+#' Get default options set by tikzDevice.
+#'
+#' @return 
+#' This function returns a list with elements
+#' \itemize{
+#'   \item `tikzDefaultEngine`
+#'   \item `tikzLatex`
+#'   \item `tikzDocumentDeclaration`
+#'   \item `tikzFooter`
+#'   \item `tikzLatexPackages`
+#'   \item `tikzXelatexPackages`
+#'   \item `tikzLualatexPackages`
+#'   \item `tikzMetricPackages`
+#'   \item `tikzUnicodeMetricPackages`
+#'   \item `tikzSanitizeCharacters`
+#'   \item `tikzReplacementCharacters`
+#'   \item `tikzPdftexWarnUTF`
+#' }
+#' 
+#' @export
+getTikzDefaults <- function() {
+  return(tikzDefaults)
 }
 
 isTikzDevice <- function(which = dev.cur()) {
