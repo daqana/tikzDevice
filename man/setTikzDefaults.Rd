@@ -7,7 +7,7 @@
 setTikzDefaults(overwrite = TRUE)
 }
 \arguments{
-\item{overwrite}{Should values that are allready set in \code{options()} be
+\item{overwrite}{Should values that are already set in \code{options()} be
 overwritten?}
 }
 \value{
