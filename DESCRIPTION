@@ -10,7 +10,7 @@ Authors@R: c( person("Charlie", "Sharpsteen", role = "aut"),
         person("Ralf", "Stubner", email = "ralf.stubner@gmail.com", 
         role = "cre"), person("Nico", "Bellack", 
         email = "nico.belack@daqana.com", role = "ctb") ) 
-URL: https://github.com/daqana/tikzDevice
+URL: https://daqana.github.io/tikzDevice/, https://github.com/daqana/tikzDevice
 BugReports: https://github.com/daqana/tikzDevice/issues
 Description: Provides a graphics output device for R that records plots
         in a LaTeX-friendly format. The device transforms plotting
